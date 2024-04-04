@@ -1,0 +1,18 @@
+.typography--variant-h2 {
+	@media (max-width: 1200px) {
+		font-size: 72px !important;
+	}
+	@media (max-width: 768px) {
+		font-size: 50px !important;
+	}
+	@media (max-width: 500px) {
+		font-size: 40px !important;
+	}
+	@media (max-width: 400px) {
+		font-size: 30px !important;
+	}
+}
+.typography--variant-text {
+	@media (max-width: 1200px) {
+	}
+}

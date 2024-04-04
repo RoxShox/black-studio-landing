@@ -1,0 +1,126 @@
+.feedbacks {
+	position: relative;
+
+	background: radial-gradient(
+		43.14% 67.8% at 120% 1.24%,
+		rgb(152, 116, 255) 0%,
+		rgb(255, 255, 255) 100%
+	);
+	padding: 18px 0 100px;
+	&::before {
+		content: "";
+		position: absolute;
+		background-image: url(../../../assets/img/review-star.svg);
+		background-repeat: no-repeat;
+		width: 430px;
+		height: 100%;
+		z-index: 1;
+		right: 0;
+	}
+	&__inner {
+		position: relative;
+		z-index: 2;
+	}
+	&__subtitle {
+		font-family: Inter, sans-serif;
+		font-size: 33px;
+		color: #000;
+		position: absolute;
+		@media (max-width: 1024px) {
+			left: 50%;
+			transform: translate(-50%);
+			top: -40px;
+		}
+	}
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(auto, 248px));
+		gap: 45px;
+		@media (max-width: 1150px) {
+			grid-template-columns: repeat(3, minmax(auto, 248px));
+			gap: 15px;
+			justify-content: center;
+		}
+		@media (max-width: 800px) {
+			grid-template-columns: repeat(2, minmax(auto, 248px));
+		}
+		@media (max-width: 500px) {
+			grid-template-columns: repeat(1, minmax(auto, 248px));
+		}
+	}
+	&__item {
+		border: 3px solid #000;
+		border-radius: 16px;
+		padding: 11px;
+	}
+	&__title {
+		font-family: Enthalpy, sans-serif;
+		font-size: 120px;
+		margin-bottom: 16px;
+		font-weight: 400;
+		color: #000;
+		text-align: center;
+		@media (max-width: 1200px) {
+			font-size: 72px;
+		}
+		@media (max-width: 1024px) {
+			margin-top: 40px;
+		}
+		@media (max-width: 768px) {
+			font-size: 50px;
+		}
+		@media (max-width: 500px) {
+			font-size: 40px;
+			margin-bottom: 20px;
+		}
+		@media (max-width: 400px) {
+			font-size: 30px;
+		}
+	}
+	&__item_descr {
+		font-size: 16px;
+		max-width: 218px;
+		position: relative;
+		padding-left: 22px;
+		line-height: 22px;
+		color: #000;
+		&::before {
+			position: absolute;
+			content: "";
+			background-image: url(../../../assets/img/feedback-star.svg);
+			width: 17px;
+			height: 17px;
+			left: 0;
+			top: 3px;
+		}
+	}
+	&__item_last {
+		background: rgba(207, 252, 134, 0.6);
+		border-radius: 16px;
+		padding: 28px 20px;
+	}
+	&__item_last__title {
+		font-family: Intro, sans-serif;
+		font-size: 22px;
+		font-weight: 400;
+		margin-bottom: 21px;
+		color: #000;
+		font-weight: 700;
+	}
+	&__item_last__text {
+		font-weight: 600;
+		color: #000;
+		margin-bottom: 25px;
+	}
+	&__item_last__btn {
+		font-family: Intro, sans-serif;
+		background: #f0ffd9;
+		border-radius: 10px;
+		width: 162px;
+		height: 53px;
+		border: none;
+		color: #404040;
+		font-size: 25px;
+		font-weight: 700;
+	}
+}
