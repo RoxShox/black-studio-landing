@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useCallback, useContext, useState } from "react"
 import { motion } from "framer-motion"
 
 import { ModalContext } from "../../../providers/GameProviders"
@@ -17,25 +17,28 @@ const Feature = () => {
 	const [sites, setSites] = useState(featureSites)
 	const { handleModalOpen } = useContext(ModalContext)
 
-	const handleItemMouseEnter = (id: number) => {
-		const currentItem = featureSites.find((item) => item.id === id)
-		if (currentItem) {
-			currentItem.hoverState = HoverStateEnum.hover
-			const allSite = sites.map((item) =>
-				item.id !== id
-					? { ...item, hoverState: HoverStateEnum.hide }
-					: { ...currentItem }
-			)
-			setSites([...allSite])
-		}
-	}
-	const handleItemMouseOut = () => {
+	const handleItemMouseEnter = useCallback(
+		(id: number) => {
+			const currentItem = featureSites.find((item) => item.id === id)
+			if (currentItem) {
+				currentItem.hoverState = HoverStateEnum.hover
+				const allSite = sites.map((item) =>
+					item.id !== id
+						? { ...item, hoverState: HoverStateEnum.hide }
+						: { ...currentItem }
+				)
+				setSites([...allSite])
+			}
+		},
+		[sites]
+	)
+	const handleItemMouseOut = useCallback(() => {
 		const allSites = sites.map((item) => ({
 			...item,
 			hoverState: HoverStateEnum.default,
 		}))
 		setSites([...allSites])
-	}
+	}, [sites])
 
 	return (
 		<section className={styles.feature}>
